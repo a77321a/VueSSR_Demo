@@ -6,16 +6,23 @@
     "node": "nodemon server/index.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "start": "npm run build:server && npm run build:client && npm run service",
+    "build:client": "cross-env BUILD_ENV=client vue-cli-service build",
+    "build:server": "cross-env BUILD_ENV=server vue-cli-service build --mode server",
+    "service": "nodemon server/index.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "cross-env": "^7.0.2",
     "express": "^4.17.1",
+    "lodash.merge": "^4.6.2",
     "vue": "^2.6.11",
     "vue-router": "^3.3.4",
     "vue-server-renderer": "^2.6.11",
     "vuex": "^3.5.1",
-    "vuex-router-sync": "^5.0.0"
+    "vuex-router-sync": "^5.0.0",
+    "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
